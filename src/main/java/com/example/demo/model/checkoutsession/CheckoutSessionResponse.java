@@ -13,8 +13,6 @@ public interface CheckoutSessionResponse {
 
   String getCurrency();
 
-  String getCheckoutUrl();
-
   List<ItemInformation> getItemInformation();
 
   String getTotalAmount();

@@ -38,13 +38,13 @@ public class CheckoutSessionController{
         return ResponseEntity.ok(
                 ImmutableCheckoutSessionResponse.builder()
                         .checkoutSessionId(UUID.randomUUID())
-                        .checkoutUrl("https://checkout.example.com/session/cs_test_a1b2c3d4e5f6g7h8i9j0")
                         .status("IN PROGRESS")
                         .itemInformation(getItemInformation())
                         .shipToAddress(createShipToAddress())
                         .currency("USD")
                         .shipToOptions(getShipToOptions())
                         .checkoutTotals(getTotals())
+                        .totalAmount("129.90")
                         .build());
     }
 

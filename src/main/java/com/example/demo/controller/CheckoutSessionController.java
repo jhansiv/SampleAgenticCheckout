@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import com.example.demo.fixtures.CheckoutCompleteResponseFixture;
 import com.example.demo.fixtures.CheckoutSessionResponseFixture;
 import com.example.demo.model.checkoutsession.CheckoutCompleteRequest;
 import com.example.demo.model.checkoutsession.CheckoutCompleteResponse;
@@ -7,7 +8,6 @@ import com.example.demo.model.checkoutsession.CheckoutSessionRequest;
 import com.example.demo.model.checkoutsession.CheckoutSessionResponse;
 
 import com.example.demo.model.checkoutsession.CheckoutSessionUpdateRequest;
-import com.example.demo.model.checkoutsession.ImmutableCheckoutCompleteResponse;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -40,6 +40,7 @@ public class CheckoutSessionController{
             @RequestBody CheckoutSessionUpdateRequest checkoutSessionUpdateRequest) {
 
         //Validate Request
+        //Check if CheckoutSession ID Exists
         //Business Logic to update Checkout Session
         CheckoutSessionResponse response = CheckoutSessionResponseFixture.getFullResponse();
 
@@ -52,7 +53,11 @@ public class CheckoutSessionController{
     public ResponseEntity<CheckoutCompleteResponse> completeCheckoutSession(
             @RequestBody CheckoutCompleteRequest checkoutRequestInformation) {
 
-        return ResponseEntity.ok(
-                ImmutableCheckoutCompleteResponse.builder().checkoutSessionId(UUID.randomUUID()).build());
+        //Validate Request
+        //Check if CheckoutSession ID Exists
+        //Business Logic to complete Checkout Session
+        CheckoutCompleteResponse response = CheckoutCompleteResponseFixture.getFullResponse();
+
+        return ResponseEntity.status(HttpStatus.OK).body(response);
     }
 }

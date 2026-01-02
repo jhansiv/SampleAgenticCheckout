@@ -6,6 +6,7 @@ import com.example.demo.model.checkoutsession.CheckoutCompleteResponse;
 import com.example.demo.model.checkoutsession.CheckoutSessionRequest;
 import com.example.demo.model.checkoutsession.CheckoutSessionResponse;
 
+import com.example.demo.model.checkoutsession.CheckoutSessionUpdateRequest;
 import com.example.demo.model.checkoutsession.ImmutableCheckoutCompleteResponse;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -32,6 +33,19 @@ public class CheckoutSessionController{
         // Return 201 Created
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
 
+    }
+
+    @PostMapping(path = "/{id}")
+    public ResponseEntity<CheckoutSessionResponse> updateCheckoutSession(
+            @RequestBody CheckoutSessionUpdateRequest checkoutSessionUpdateRequest) {
+
+        //Validate Request
+        //Business Logic to update Checkout Session
+        CheckoutSessionResponse response = CheckoutSessionResponseFixture.getFullResponse();
+
+
+        // Return 201 Created
+        return ResponseEntity.status(HttpStatus.OK).body(response);
     }
 
     @PostMapping(path = "/{id}/complete")

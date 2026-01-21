@@ -12,11 +12,10 @@ import java.security.Key;
 import java.time.Duration;
 import java.util.Arrays;
 import java.util.Date;
-import java.util.Map;
 
 public class JwtUtil {
     private static final String SECRET = Arrays.toString(Keys.secretKeyFor(SignatureAlgorithm.HS256).getEncoded());
-    private static final String ISSUER = "checkout-service";
+    private static final String ISSUER = "agentic-checkout-service";
     private static final Duration EXPIRY = Duration.ofHours(1);
 
     private static final Key KEY = Keys.hmacShaKeyFor(SECRET.getBytes(StandardCharsets.UTF_8));

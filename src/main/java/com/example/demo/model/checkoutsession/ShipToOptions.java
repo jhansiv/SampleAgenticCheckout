@@ -2,6 +2,8 @@ package com.example.demo.model.checkoutsession;
 
 import org.immutables.value.Value;
 
+import java.math.BigDecimal;
+
 @Value.Immutable
 public interface ShipToOptions {
   String getViaCode();
@@ -14,7 +16,7 @@ public interface ShipToOptions {
 
   String getLeadTimeDays();
 
-  String getShippingCost();
+  BigDecimal getShippingCost();
 
   boolean getIsFreight();
 

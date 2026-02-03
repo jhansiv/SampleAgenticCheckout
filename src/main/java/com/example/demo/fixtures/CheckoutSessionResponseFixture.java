@@ -1,5 +1,6 @@
 package com.example.demo.fixtures;
 
+
 import com.example.demo.model.checkoutsession.CheckoutSessionResponse;
 import com.example.demo.model.checkoutsession.CheckoutTotal;
 import com.example.demo.model.checkoutsession.ImmutableCheckoutSessionResponse;
@@ -55,7 +56,7 @@ public class CheckoutSessionResponseFixture {
                         .viaId("SHIP_VIA_001")
                         .leadTime("3 Business Days")
                         .leadTimeDays("5-7")
-                        .shippingCost("10.00")
+                        .shippingCost(new BigDecimal(15.00))
                         .isFreight(false)
                         .isParcel(true)
                         .build(),
@@ -65,7 +66,7 @@ public class CheckoutSessionResponseFixture {
                         .viaId("SHIP_VIA_002")
                         .leadTime("2")
                         .leadTimeDays("2 days")
-                        .shippingCost("25.00")
+                        .shippingCost(new BigDecimal("25.00"))
                         .isFreight(true)
                         .isParcel(false)
                         .build());

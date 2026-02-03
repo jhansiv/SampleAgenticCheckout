@@ -1,14 +1,12 @@
 package com.example.demo.config;
 
 
-import com.example.demo.Utils.JwtFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
-import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 /**
  * Spring Security configuration:
@@ -34,14 +32,11 @@ public class SecurityConfig {
 
                 // Authorize requests by path
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/auth/**", "/actuator/health").permitAll() // public endpoints
-                        .requestMatchers("/checkout-session/**").authenticated()
-                        .requestMatchers("/payment/**").authenticated() // your controller
-                        .anyRequest().denyAll()                                       // everything else blocked
-                )
+                        .requestMatchers("/auth/**", "/actuator/health","/checkout/**","/products/**","/images/**").permitAll() // public endpoints
+                        .anyRequest().permitAll() // your controller                         // everything else blocked
+                );
 
                 // Register your JwtFilter before Spring’s UsernamePasswordAuthenticationFilter
-                .addFilterBefore(new JwtFilter(), UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
     }

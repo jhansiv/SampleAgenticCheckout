@@ -55,7 +55,7 @@ public class CheckoutCompleteResponseFixture {
                         .viaId("SHIP_VIA_001")
                         .leadTime("3 Business Days")
                         .leadTimeDays("5-7")
-                        .shippingCost("10.00")
+                        .shippingCost(new BigDecimal("10.00"))
                         .isFreight(false)
                         .isParcel(true)
                         .build(),
@@ -65,7 +65,7 @@ public class CheckoutCompleteResponseFixture {
                         .viaId("SHIP_VIA_002")
                         .leadTime("2")
                         .leadTimeDays("2 days")
-                        .shippingCost("25.00")
+                        .shippingCost(new BigDecimal("25.00"))
                         .isFreight(true)
                         .isParcel(false)
                         .build());
